@@ -264,7 +264,7 @@ public class ClassePrincipal {
             }
         }
     }
-
+    // Método cancelarVoo()
     public static void cancelarVoo() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -273,9 +273,9 @@ public class ClassePrincipal {
 
         System.out.println("Infome o número do voo a ser cancelado: ");
         int num = Integer.parseInt(in.nextLine());
-
+        // Verifica a existência do voo
         if (verificarVoo(num)) {
-
+            // Se o voo existir definie o seu valor como null
             for (int i = 0; i < voos.length; i++) {
                 if (voos[i] != null && voos[i].getNumero() == num) {
                     voos[i] = null;
@@ -295,7 +295,7 @@ public class ClassePrincipal {
         System.out.println();
         System.out.println();
     }
-
+    // Método atualizarVoo()
     public static void atualizarVoo() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -306,9 +306,9 @@ public class ClassePrincipal {
         int num = Integer.parseInt(in.nextLine());
 
         verificarVoo(num);
-
+        // Verifica a existência do voo
         if (verificarVoo(num)) {
-
+            // Se existir, pede os novos dados para atualização
             System.out.println("\nOrigem: ");
             String orig = in.nextLine().toUpperCase();
 
@@ -320,7 +320,7 @@ public class ClassePrincipal {
 
             for (int i = 0; i < voos.length; i++) {
                 if (voos[i] != null && voos[i].getNumero() == num) {
-
+                    // Insere os novos dados do voo
                     voos[i] = new Voo(num, orig, dest, quant);
 
                 }
@@ -337,7 +337,7 @@ public class ClassePrincipal {
         System.out.println();
         System.out.println();
     }
-
+    // Método cancelarReserva()
     public static void cancelarReserva() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -346,9 +346,9 @@ public class ClassePrincipal {
 
         System.out.println("Informe o número do voo: ");
         int num = Integer.parseInt(in.nextLine());
-
+        // Verifica a existência do voo
         if (verificarVoo(num)) {
-
+            // Se existir, pede o numero do assento da reserva a ser cancelada
             System.out.println("Informe o número do assento: ");
             int assent = Integer.parseInt(in.nextLine());
 
@@ -358,12 +358,12 @@ public class ClassePrincipal {
                 if ((voo != null) && (voo.getNumero() == num)) {
 
                     System.out.println(voo.getAssentos()[assent - 1]);
-
+                    // Cancelar reserva ? 
                     System.out.println("CANCELAR ?");
                     String cancel = in.nextLine();
 
                     if (cancel.equalsIgnoreCase("sim")) {
-
+                        // Se sim, difine o valor do assento como null
                         voo.getAssentos()[assent - 1] = null;
 
                         System.out.println("\nRESERVA CANCELADA COM SUCESSO!");
@@ -384,7 +384,7 @@ public class ClassePrincipal {
         System.out.println();
         System.out.println();
     }
-
+    // Método listarReserva
     public static void listarReserva() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -393,9 +393,9 @@ public class ClassePrincipal {
 
         System.out.println("Informe o número do voo: ");
         int num = Integer.parseInt(in.nextLine());
-
+        // Verifica existência do voo
         if (verificarVoo(num)) {
-
+            // Se existir, lista as reservas
             for (Voo voo : voos) {
                 if ((voo != null) && (voo.getNumero() == num)) {
 
@@ -430,22 +430,20 @@ public class ClassePrincipal {
         System.out.println();
         System.out.println();
     }
-
+    // Método pesquisarVoo()
     public static void pesquisarVoo() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         System.out.println(" =================== PESQUISAR VOO =============================");
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 
-        int assentLivres = 0;
-
         System.out.println("Informe o número do voo: ");
         int num = Integer.parseInt(in.nextLine());
-
+        
         System.out.println();
-
+        // Verifica a existência do voo
         if (verificarVoo(num)) {
-
+            // Se existir, lista seus dados
             for (Voo voo : voos) {
                 if ((voo != null) && (voo.getNumero() == num)) {
                     System.out.println(voo);
@@ -463,7 +461,7 @@ public class ClassePrincipal {
         System.out.println();
         System.out.println();
     }
-
+    // Método pesquisarPassageiro()
     public static void pesquisarPassageiro() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -474,7 +472,7 @@ public class ClassePrincipal {
         int num = Integer.parseInt(in.nextLine());
         
         boolean vazio = true;
-
+        // Verifica existência do voo
         if(verificarVoo(num)){
             
             System.out.println("Número do assento: ");
