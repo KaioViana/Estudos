@@ -1,1 +1,1 @@
-Projetos de estudos da faculdade e pessoais.
+PROJETOS DE ESTUDOS DA FACULDADE E PESSOAIS
