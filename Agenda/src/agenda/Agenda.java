@@ -9,7 +9,7 @@ public class Agenda {
     public Agenda() {
 
     }
-
+    // Método exibirMenu()
     public void exibirMenu() {
 
         while (true) {
@@ -60,7 +60,7 @@ public class Agenda {
             }
         }
     }
-
+    // Método adicionar contato
     public void adicionarContato() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -68,7 +68,7 @@ public class Agenda {
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         
         boolean cheio = true;
-
+        // Pega o primeiro espaço do vetor com o valor null e pede os dados
         for (int i = 0; i < contatos.length; i++) {
             if (contatos[i] == null) {
 
@@ -77,7 +77,7 @@ public class Agenda {
 
                 System.out.println("\nTelefone: ");
                 String tel = in.nextLine();
-
+                // Enquanto o formato do telefone for informado errado
                 while (!verificarTel(tel)) {
 
                     System.out.println("\nTelefone no formato inválido, Informe novamente:");
@@ -105,7 +105,7 @@ public class Agenda {
         System.out.println();
 
     }
-
+    // Método listarContatos()
     public void listarContatos() {
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -113,7 +113,8 @@ public class Agenda {
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         
         boolean vazio = true;
-        
+        // Utiliza o método toString() da classe contato
+        // para mostrar os contatos armazenados no vetor
         for(Contato contato : contatos){
             if(contato != null){
                 System.out.println(contato);
@@ -129,11 +130,12 @@ public class Agenda {
         System.out.println();
         
     }
-
+    // Método verificarTel()
     public boolean verificarTel(String tel) {
         
         boolean valido = true;
-        
+        // Verifica caracter por caracter para ver se são números.
+        // se for, retorna true, se não, retorna false
         for(int i = 0; i < tel.length(); i++){
             if((tel.charAt(i) != '0') && (tel.charAt(i) != '1')
                     && (tel.charAt(i) != '2') && (tel.charAt(i) != '3')
@@ -149,11 +151,11 @@ public class Agenda {
         return valido;
         
     }
-    
+    // Método verificarCont()
     public boolean verificarCont(String nome){
         
         boolean encontrado = false;
-        
+        // Se o contato constar no vetor, retorna true, se não, false
         for(Contato contato : contatos){
             if(contato != null && contato.getNome().equals(nome)){
                 
@@ -166,7 +168,7 @@ public class Agenda {
         return encontrado;
         
     }
-    
+    // Método editarContato
     public void editarContato(){
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -175,15 +177,15 @@ public class Agenda {
         
         System.out.println("Nome: ");
         String nome = in.nextLine().toUpperCase();
-        
+        // Verifica se o contato consta no vetor
         if(verificarCont(nome)){
-            
+            // se constar, pede os dados para atualização
             for(Contato contato : contatos){
                 if(contato != null && contato.getNome().equals(nome)){
 
                     System.out.println("\nTelefone: ");
                     contato.setTelefone(in.nextLine());
-
+                    // Enquanto o formato do telefone for informado errado
                     while (!verificarTel(contato.getTelefone())) {
 
                         System.out.println("\nTelefone no formato inválido, Informe novamente:");
@@ -209,7 +211,7 @@ public class Agenda {
         System.out.println();
         
     }
-    
+    // Método apagar contato
     public void apagarContato(){
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -218,7 +220,7 @@ public class Agenda {
         
         System.out.println("Nome: ");
         String nome = in.nextLine().toUpperCase();
-        
+        // Se o contato constar no vetor ele é apagado
         if(verificarCont(nome)){
             for(int i = 0; i < contatos.length; i++){
                 if(contatos[i] != null && contatos[i].getNome().equals(nome)){
@@ -229,10 +231,10 @@ public class Agenda {
                 }
             }
             
-            System.out.println("\nContato apagado com sucesso!\n");
+            System.out.println("\nCONTATO APAGADO COM SUCESSO!\n");
             
         }else{
-            System.out.println("\nContato não encontrado!\n");
+            System.out.println("\nCONTATO NÃO ENCONTRADO!\n");
             
         }
         
@@ -241,7 +243,7 @@ public class Agenda {
         System.out.println();
         
     }
-    
+    // Método pesquisarContato()
     public void pesquisarCont(){
         
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -250,9 +252,9 @@ public class Agenda {
         
         System.out.println("Nome: ");
         String nome = in.nextLine().toUpperCase();
-        
+        // Verifica se o contato existe no vetor
         if(verificarCont(nome)){
-            
+            // Se existir, utilza o método toString() para mostrá-lo
             for(Contato contato : contatos){
                 if(contato != null && contato.getNome().equals(nome)){
                     
