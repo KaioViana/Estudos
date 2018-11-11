@@ -1,5 +1,5 @@
 package rational;
-/*Classe Rational.java
+/*Classe Rational.java 
 Realiza operações aritméticas com Racionais
 */
 
