@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  Classe HugeInteger que utiliza um array de 40 elementos de dígitos para armazenar
+  inteiros com até 40 dígitos. Contêm os métodos parse, toString, add e subtract.
+  O método parse recebe uma String, extrai cada dígito usando o método charAt e coloca
+  o valor inteiro equivalente de cada dígito no array de inteiros.
  */
 package hugeinteger;
 
