@@ -3,7 +3,7 @@ package trabalgn2;
 public class Andar {
     private int andar; // o número do andar
     private Apartamento apartamentos[]; // uma matriz de objetos da classe Apartamento
-    private int quantidadeMoradores; // quantidade de moradores no andar
+    private static int quantidadeMoradores; // quantidade de moradores no andar
 
     // construtor cheio recebe apenas o número do andar
     public Andar(int andar) {
@@ -37,6 +37,9 @@ public class Andar {
     }
     
     public int getQuantMoradores(){
+
+	quantidadeMoradores = 0;
+
         // para pegar a quantidade de moradores do andar faz um loop pela matriz apartamentos
         for(Apartamento apartamento : apartamentos){
             if(apartamento.getMorador() != null){
